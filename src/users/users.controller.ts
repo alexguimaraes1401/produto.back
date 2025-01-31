@@ -3,8 +3,8 @@ import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { UserDto } from './dtos/user.dto';
 import { UsersService } from './users.service';
 
-@ApiTags('Users')
-@Controller('users')
+@ApiTags('Usuários')
+@Controller('usuario')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 

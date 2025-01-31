@@ -19,6 +19,10 @@ export class CategoryRepository {
     return this.prisma.category.findUnique({ where: { id } });
   }
 
+  async findByName(name: string) {
+    return this.prisma.category.findFirst({ where: { name } });
+  }
+
   async update(id: number, name: string) {
     return this.prisma.category.update({
       where: { id },

@@ -31,6 +31,7 @@ CREATE TABLE "Product" (
 -- CreateTable
 CREATE TABLE "ProductOrder" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "quantity" INTEGER NOT NULL,
     "productId" INTEGER NOT NULL,
     "orderId" INTEGER NOT NULL,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -42,7 +43,6 @@ CREATE TABLE "ProductOrder" (
 -- CreateTable
 CREATE TABLE "Order" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "orderId" INTEGER NOT NULL,
     "totalPrice" REAL NOT NULL,
     "status" TEXT NOT NULL,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -60,6 +60,3 @@ CREATE UNIQUE INDEX "Category_name_key" ON "Category"("name");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Product_name_key" ON "Product"("name");
-
--- CreateIndex
-CREATE UNIQUE INDEX "Order_orderId_key" ON "Order"("orderId");

@@ -7,7 +7,7 @@ import { AuthGuard } from '@nestjs/passport';
 @ApiTags('Categorias')
 @ApiBearerAuth()
 @UseGuards(AuthGuard('jwt'))
-@Controller('categories')
+@Controller('categoria')
 export class CategoryController {
     constructor(private readonly categoryService: CategoryService) { }
 
