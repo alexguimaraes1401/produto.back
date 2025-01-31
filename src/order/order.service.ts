@@ -20,9 +20,6 @@ export class OrderService {
       if (product.qtdStock < item.quantity) {
         throw new BadRequestException(`Produto ${product.name} não tem estoque suficiente.`);
       }
-      await this.productService.update(product.id, {
-        qtdStock: product.qtdStock - item.quantity
-      });
       totalPrice += product.price * item.quantity;
     }
 
@@ -57,12 +54,12 @@ export class OrderService {
       throw new BadRequestException('Status não pode ser alterado após ser "Concluído" ou "Cancelado"');
     }
 
-    if (status === 'Cancelado') {
+    if (status === 'Concluído') {
       const itens = await this.productOrderService.findByOrderId(id)
       for (const item of itens) {
         const product = await this.productService.findById(item.productId)
         await this.productService.update(item.productId, {
-          qtdStock: product.qtdStock + item.quantity
+          qtdStock: product.qtdStock - item.quantity
         });
       }
     }
