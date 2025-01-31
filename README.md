@@ -36,4 +36,6 @@ Renomeio o `.env.exemple` para `.env`, se preferir altere o JWT_KEY para um cód
 O projeto estará rodando localmente no http://localhost:3000.
 Para acessar a documentação acesse http://localhost:3000/doc.
 
+## Rodar os testes unitários
 
+Execute o comando `npm run test` ou `yarn test` para realizar os testes.
